@@ -1,5 +1,5 @@
 import org.junit.jupiter.api.Assertions;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
 public class RadioTest {
 
@@ -21,7 +21,7 @@ public class RadioTest {
         Radio radio = new Radio();
         radio.setCurrentVolume(20);
 
-        radio.increaseVolume();
+        return;
     }
 
     @Test
@@ -29,7 +29,7 @@ public class RadioTest {
         Radio radio = new Radio();
         radio.setCurrentVolume(-1);
 
-        radio.increaseVolume();
+        return;
     }
 
     @Test
