@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 public class RadioTest {
 
     @Test
-    public void testMaxVolume() {
+    public void testIncreaseVolume() {
         Radio radio = new Radio();
         radio.setCurrentVolume(9);
 
@@ -17,7 +17,39 @@ public class RadioTest {
     }
 
     @Test
-    public void testEighthToNext() {
+    public void testMaxVolume() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(20);
+
+        radio.increaseVolume();
+    }
+
+    @Test
+    public void testMinVolume() {
+        Radio radio = new Radio();
+        radio.setCurrentVolume(-1);
+
+        radio.increaseVolume();
+    }
+
+    @Test
+    public void testMaxStation() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(20);
+
+        return;
+    }
+
+    @Test
+    public void testMinStation() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(-2);
+
+        return;
+    }
+
+    @Test
+    public void testEighthToNextStation() {
         Radio radio = new Radio();
         radio.setCurrentStation(8);
 
@@ -25,6 +57,19 @@ public class RadioTest {
 
         int actual = radio.getCurrentStation();
         int expected = 9;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testNineToNextStation() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(9);
+
+        radio.next();
+
+        int actual = radio.getCurrentStation();
+        int expected = 0;
 
         Assertions.assertEquals(expected, actual);
     }
@@ -41,6 +86,20 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    public void testOneToPrev() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(0);
+
+        radio.prev();
+
+        int actual = radio.getCurrentStation();
+        int expected = 9;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
     @Test
     public void testDecreaseVolume() {
         Radio radio = new Radio();
