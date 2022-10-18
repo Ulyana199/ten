@@ -39,6 +39,16 @@ public class RadioTest {
 
         return;
     }
+    @Test
+    public void testMax() {
+        Radio radio = new Radio(50);
+        radio.setCurrentStation(26);
+
+        int actual = radio.getCurrentStation();
+        int expected = 26;
+
+        Assertions.assertEquals(expected,actual);
+    }
 
     @Test
     public void testMinStation() {
@@ -60,7 +70,18 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+    @Test
+    public void testNextStation() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(16);
 
+        radio.next();
+
+        int actual = radio.getCurrentStation();
+        int expected = 17;
+
+        Assertions.assertEquals(expected, actual);
+    }
     @Test
     public void testNineToNextStation() {
         Radio radio = new Radio();
